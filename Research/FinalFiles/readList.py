@@ -15,7 +15,7 @@ with open('procMap.txt') as f:
 with open('address.txt') as f:
 	address = f.read().splitlines()				
 
-
+ 
 for index in range(len(address)):
 	for mapping in zones:
 		if mapping["start"] <= int(address[index],16) < mapping["end"]:
@@ -23,5 +23,5 @@ for index in range(len(address)):
 
 	# Check the memory permissions
 	if "w" in mapping["perms"]:
-		print("Format function no. %d has format string in writable memory." % (index+1));
+		print("Format function no. %d has format string in writable memory." % (index+1)); 
 
