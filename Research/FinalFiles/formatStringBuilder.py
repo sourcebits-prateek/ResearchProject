@@ -1,6 +1,6 @@
 dummyString = "AAAAA";
 addressToWrite = "0804856d";
-addressToOverwrite = "0804a00c";
+addressToOverwrite = "8049fa0";
 distanceInWords = 7;
 
 splitsAddressToOverwrite = [addressToOverwrite[x:x+2] for x in range(0,len(addressToOverwrite),2)]
