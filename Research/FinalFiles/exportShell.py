@@ -26,7 +26,7 @@ from subprocess import Popen,PIPE,call
 		log.debug("Found got address for function '%s' of binary '%s' at: %#x" % (options.got,binary,options.overwrite))
 '''
 
-
+'''
 binaryName = os.environ["PWD"] + "/binaries/newproblem1";
 p1 = Popen(["objdump", "--dynamic-reloc", binaryName], stdout=PIPE)
 p2 = Popen(["cut", "-d ", "-f1"], stdin=p1.stdout, stdout=PIPE).communicate()[0]
@@ -41,11 +41,16 @@ for line in p2.split('\n'):
 del zones[0:3];
 
 print zones;
-
+'''
 
 
 #binaryName = os.environ["PWD"] + "/binaries/newproblem1";	
 #p1 = Popen(["objdump", "--dynamic-reloc", binaryName],stdout=PIPE,close_fds=True).communicate()[0].strip();
 #print (p2);
+
+cmd = 'echo $HOME'
+print Popen(cmd,stdout=PIPE,close_fds=True,shell=True).communicate()[0].strip()
+
+
 
 

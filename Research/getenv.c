@@ -3,8 +3,6 @@
 
 int main(int argc, char *argv[]) {
 
-  putenv("SHELLCODE=AAAA");
-
   char *addr;
   if (argc < 2) {
     printf("Usage:\n%s <environment variable name>\n", argv[0]);
