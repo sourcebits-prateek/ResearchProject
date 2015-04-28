@@ -12,9 +12,14 @@ class CheckFmtBreakpoint(gdb.Breakpoint):
 
 	def stop(self):
 
+		gdb.execute('set logging overwrite on')		
 		gdb.execute('set logging on')		
 		for i in range(0,10):
 			gdb.execute('x/s *((char **)environ+%d)'%i)
+			gdb.execute('set logging off')		
+			gdb.execute('set logging overwrite off')
+			gdb.execute('set logging on')		
+
 		gdb.execute('set logging off')		
 
 		proc_map = [];
@@ -24,12 +29,3 @@ class CheckFmtBreakpoint(gdb.Breakpoint):
 	
 
 CheckFmtBreakpoint("main")
-'''
-CheckFmtBreakpoint("fprintf", 1)
-CheckFmtBreakpoint("sprintf", 1)
-CheckFmtBreakpoint("snprintf", 2)
-CheckFmtBreakpoint("vprintf", 0)
-CheckFmtBreakpoint("vfprintf", 1)
-CheckFmtBreakpoint("vsprintf", 1)
-CheckFmtBreakpoint("vsnprintf", 2)
-'''
